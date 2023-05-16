@@ -14,5 +14,9 @@ FactoryBot.define do
     factory :developer do
       type { "Developer" }
     end
+
+    factory :manager do
+      type { "Manager" }
+    end
   end
 end
