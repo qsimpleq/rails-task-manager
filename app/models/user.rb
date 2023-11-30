@@ -8,6 +8,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[first_name last_name email]
+    ['first_name', 'last_name', 'email']
   end
 end
