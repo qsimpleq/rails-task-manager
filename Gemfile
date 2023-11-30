@@ -27,6 +27,11 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'active_model_serializers'
+gem 'kaminari'
+gem 'ransack'
+gem 'responders'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'state_machines'
@@ -58,3 +63,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'net-http'
