@@ -1,5 +1,13 @@
-class Api::V1::ApplicationController < ApplicationController
-  RANSACK_DEFAULT_SORT = 'id ASC'
+class Api::V1::ApplicationController < ::ApplicationController
+  respond_to :json
+
+  def self.responder
+    JsonResponder
+  end
+
+  respond_to :json
+
+  RANSACK_DEFAULT_SORT = 'id ASC'.freeze
 
   def build_meta(collection)
     {
@@ -7,7 +15,7 @@ class Api::V1::ApplicationController < ApplicationController
       total_count: collection.total_count,
       current_page: collection.current_page,
       total_pages: collection.total_pages,
-      per_page: collection.limit_value
+      per_page: collection.limit_value,
     }
   end
 
