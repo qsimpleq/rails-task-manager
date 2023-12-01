@@ -2,10 +2,9 @@ class Task < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :assignee, class_name: 'User', optional: true
 
-  validates :name, presence: true
-  validates :description, presence: true
   validates :author, presence: true
-  validates :description, length: { maximum: 500 }
+  validates :name, presence: true
+  validates :description, presence: true, length: { maximum: 500 }
 
   state_machine :state, initial: :new_task do
     event :to_development do
@@ -31,5 +30,9 @@ class Task < ApplicationRecord
     event :to_archived do
       transition [:new_task, :released] => :archived
     end
+  end
+
+  def self.ransackable_attributes(_)
+    ['author', 'assignee', 'name', 'description']
   end
 end
